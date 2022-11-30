@@ -1,0 +1,5 @@
+bin/
+obj/
+/.idea
+/2021/.idea/
+packages/
