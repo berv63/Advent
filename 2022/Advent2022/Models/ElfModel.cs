@@ -6,13 +6,11 @@ namespace Advent2022.Models
 {
     public class ElfModel
     {
-        public int Index { get; set; }
         public List<int> FoodList { get; set; } = new();
         public int CarryCount => FoodList.Sum();
 
-        public ElfModel(int index)
+        public ElfModel()
         {
-            Index = index;
         }
 
         public void AddItem(string item)

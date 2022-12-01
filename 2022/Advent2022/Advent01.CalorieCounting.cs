@@ -6,21 +6,18 @@ public static class CalorieCounting
 {
     public static List<ElfModel> BuildElfList(List<string> itemList)
     {
-        var i = 0;
-        var elfList = new List<ElfModel>{new (1)};
-        var elfCount = 2;
-        do
+        var elfList = new List<ElfModel>{new ()};
+        foreach (var item in itemList)
         {
-            if (itemList[i] == "")
+            if (item == "")
             {
-                elfList.Add(new ElfModel(elfCount));
-                elfCount++;
-                i++;
-                continue;
+                elfList.Add(new ElfModel());
             }
-            elfList.Last().AddItem(itemList[i]);
-            i++;
-        } while (i < itemList.Count);
+            else
+            {
+                elfList.Last().AddItem(item);
+            }
+        }
 
         return elfList;
     }
