@@ -25,20 +25,14 @@ public static class CalorieCounting
         return elfList;
     }
 
-    public static int MaxCalorieCount(List<ElfModel> elfs)
+    public static int MaxCalorieCount(List<ElfModel> elves)
     {
-        return elfs.Max(y => y.CarryCount);
+        return elves.Max(y => y.CarryCount);
     }
     
-    public static int Top3CalorieTotal(List<ElfModel> elfs)
+    public static int Top3CalorieTotal(List<ElfModel> elves)
     {
-        var calorieCount = 0;
-        var maxCarryCount = int.MaxValue;
-        for (int i = 0; i < 3; i++)
-        {
-            maxCarryCount = elfs.Where(x => x.CarryCount < maxCarryCount).Max(y => y.CarryCount);
-            calorieCount += maxCarryCount;
-        }
-        return calorieCount;
+        var sortedElves = elves.OrderByDescending(x => x.CarryCount);
+        return sortedElves.Take(3).Sum(x => x.CarryCount);
     }
 }
