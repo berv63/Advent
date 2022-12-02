@@ -7,15 +7,15 @@ namespace Advent2022.Models
     {
         private int CharIntOffset = 65;
         
-        public int TheirThrow { get; set; }
-        public int MyThrow { get; set; }
+        public RockPaperScissorsThrowEnum TheirThrow { get; set; }
+        public RockPaperScissorsThrowEnum MyThrow { get; set; }
         
         public RockPaperScissorsOutcomeEnum Outcome => CalculateResult();
 
         public RockPaperScissorsRound(char theirThrowChar, char myThrowChar)
         {
-            TheirThrow = theirThrowChar - CharIntOffset;
-            MyThrow = ReduceThrow(myThrowChar) - CharIntOffset;
+            TheirThrow = (RockPaperScissorsThrowEnum)(theirThrowChar - CharIntOffset);
+            MyThrow = (RockPaperScissorsThrowEnum)(ReduceThrow(myThrowChar) - CharIntOffset);
         }
         
         private int ReduceThrow(char myThrow)
@@ -39,12 +39,12 @@ namespace Advent2022.Models
 
         private bool DidTheyWin()
         {
-            return (MyThrow + 1) % 3 == TheirThrow;
+            return ((int)MyThrow + 1) % 3 == (int)TheirThrow;
         }
 
         private bool DidIWin()
         {
-            return (TheirThrow + 1) % 3 == MyThrow;
+            return ((int)TheirThrow + 1) % 3 == (int)MyThrow;
         }
     }
 }

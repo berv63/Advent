@@ -4,7 +4,7 @@ namespace Advent2022.Interfaces;
 
 public interface IRockPaperScissorsRound
 {
-    public int TheirThrow { get; }
-    public int MyThrow { get;  }
+    public RockPaperScissorsThrowEnum TheirThrow { get; }
+    public RockPaperScissorsThrowEnum MyThrow { get;  }
     public RockPaperScissorsOutcomeEnum Outcome { get; }
 }

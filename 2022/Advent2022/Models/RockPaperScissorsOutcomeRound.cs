@@ -7,14 +7,14 @@ namespace Advent2022.Models
     {
         private int CharIntOffset = 65;
         
-        public int TheirThrow { get; set; }
+        public RockPaperScissorsThrowEnum TheirThrow { get; set; }
         public RockPaperScissorsOutcomeEnum Outcome { get; set; }
         
-        public int MyThrow => CalculateThrow();
+        public RockPaperScissorsThrowEnum MyThrow => CalculateThrow();
 
         public RockPaperScissorsOutcomeRound(char theirThrowChar, char outcome)
         {
-            TheirThrow = theirThrowChar - CharIntOffset;
+            TheirThrow = (RockPaperScissorsThrowEnum)(theirThrowChar - CharIntOffset);
             Outcome = GetOutcome(outcome);
         }
 
@@ -29,7 +29,7 @@ namespace Advent2022.Models
             };
         }
         
-        private int CalculateThrow()
+        private RockPaperScissorsThrowEnum CalculateThrow()
         {
             return Outcome switch
             {
@@ -40,14 +40,16 @@ namespace Advent2022.Models
             };
         }
 
-        private int GetLoserToTheirThrow()
+        private RockPaperScissorsThrowEnum GetLoserToTheirThrow()
         {
-            return (TheirThrow + 2) % 3;
+            var loserInt = ((int)TheirThrow + 2) % 3;
+            return (RockPaperScissorsThrowEnum)loserInt;
         }
 
-        private int GetWinnerToTheirThrow()
+        private RockPaperScissorsThrowEnum GetWinnerToTheirThrow()
         {
-            return (TheirThrow + 1) % 3;
+            var winnerInt = ((int)TheirThrow + 1) % 3;
+            return (RockPaperScissorsThrowEnum)winnerInt;
         }
     }
 }
