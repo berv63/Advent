@@ -2,49 +2,50 @@ using System.Collections.Generic;
 using System.Linq;
 using Advent2022.Models;
 using AdventShared;
+using Microsoft.VisualStudio.TestPlatform.Utilities.Helpers;
 using NUnit.Framework;
 
 namespace Advent2022.Tests
 {
     [TestFixture]
-    public class Advent1CalorieCountingTests
+    public class Advent01_CalorieCountingTests
     {
         [Test]
-        public void MaxCaloriePractice()
+        public void MaxCalorie_Practice()
         {
-            var elfFoods = FileExtensions.ReadFile(@"..\..\..\..\Files\Advent1\Practice.txt");
+            var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
-            var elfList = Advent2022.CalorieCounting.BuildElfList(elfFoods);
+            var elfList = Advent2022.CalorieCounting.BuildElfList(fileData);
             var result = Advent2022.CalorieCounting.MaxCalorieCount(elfList);
             Assert.AreEqual(24000, result);
         }
         
         [Test]
-        public void MaxCalorie()
+        public void MaxCalorie_Actual()
         {
-            var elfFoods = FileExtensions.ReadFile(@"..\..\..\..\Files\Advent1\Practice.txt");
+            var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
-            var elfList = Advent2022.CalorieCounting.BuildElfList(elfFoods);
+            var elfList = Advent2022.CalorieCounting.BuildElfList(fileData);
             var result = Advent2022.CalorieCounting.MaxCalorieCount(elfList);
-            Assert.AreEqual(24000, result);
+            Assert.AreEqual(72240, result);
         }
         
         [Test]
-        public void Top3CalorieTotalPractice()
+        public void Top3CalorieTotal_Practice()
         {
-            var elfFoods = FileExtensions.ReadFile(@"..\..\..\..\Files\Advent1\Practice.txt");
+            var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
-            var elfList = Advent2022.CalorieCounting.BuildElfList(elfFoods);
+            var elfList = Advent2022.CalorieCounting.BuildElfList(fileData);
             var result = Advent2022.CalorieCounting.Top3CalorieTotal(elfList);
             Assert.AreEqual(45000, result);
         }
         
         [Test]
-        public void Top3CalorieTotal()
+        public void Top3CalorieTotal_Actual()
         {
-            var elfFoods = FileExtensions.ReadFile(@"..\..\..\..\Files\Advent1\Actual.txt");
+            var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
-            var elfList = Advent2022.CalorieCounting.BuildElfList(elfFoods);
+            var elfList = Advent2022.CalorieCounting.BuildElfList(fileData);
             var result = Advent2022.CalorieCounting.Top3CalorieTotal(elfList);
             Assert.AreEqual(210957, result);
         }

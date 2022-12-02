@@ -1,51 +1,47 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Advent2022.Models;
 using AdventShared;
 using NUnit.Framework;
 
 namespace Advent2022.Tests
 {
     [TestFixture]
-    public class Advent2RockPaperScissorsTests
+    public class Advent02_RockPaperScissorsTests
     {
         [Test]
-        public void RockPaperScissorsPractice()
+        public void RockPaperScissors_Practice()
         {
-            var gameRounds = FileExtensions.ReadFile(@"..\..\..\..\Files\Advent2\Practice.txt");
+            var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
             
-            var gameRoundsSplit = Advent2022.RockPaperScissors.BuildRounds(gameRounds); 
+            var gameRoundsSplit = Advent2022.RockPaperScissors.BuildRounds(fileData); 
             var result = Advent2022.RockPaperScissors.GameResults(gameRoundsSplit);
             Assert.AreEqual(15, result);
         }
         
         [Test]
-        public void RockPaperScissors()
+        public void RockPaperScissors_Actual()
         {
-            var gameRounds = FileExtensions.ReadFile(@"..\..\..\..\Files\Advent2\Actual.txt");
+            var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
             
-            var gameRoundsSplit = Advent2022.RockPaperScissors.BuildRounds(gameRounds); 
+            var gameRoundsSplit = Advent2022.RockPaperScissors.BuildRounds(fileData); 
             var result = Advent2022.RockPaperScissors.GameResults(gameRoundsSplit);
             Assert.AreEqual(12156, result);
         }
         
         [Test]
-        public void RockPaperScissorsOutcomePractice()
+        public void RockPaperScissorsOutcome_Practice()
         {
-            var gameRounds = FileExtensions.ReadFile(@"..\..\..\..\Files\Advent2\Practice.txt");
+            var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
-            var gameRoundsSplit = Advent2022.RockPaperScissors.BuildOutcomeRounds(gameRounds); 
+            var gameRoundsSplit = Advent2022.RockPaperScissors.BuildOutcomeRounds(fileData); 
             var result = Advent2022.RockPaperScissors.GameResults(gameRoundsSplit);
             Assert.AreEqual(12, result);
         }
         
         [Test]
-        public void RockPaperScissorsOutcome()
+        public void RockPaperScissorsOutcome_Actual()
         {
-            var gameRounds = FileExtensions.ReadFile(@"..\..\..\..\Files\Advent2\Actual.txt");
+            var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
-            var gameRoundsSplit = Advent2022.RockPaperScissors.BuildOutcomeRounds(gameRounds); 
+            var gameRoundsSplit = Advent2022.RockPaperScissors.BuildOutcomeRounds(fileData); 
             var result = Advent2022.RockPaperScissors.GameResults(gameRoundsSplit);
             Assert.AreEqual(10835, result);
         }
