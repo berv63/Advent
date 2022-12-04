@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Advent2022.Models
+﻿namespace Advent2022.Models
 {
     public class ElfModel
     {

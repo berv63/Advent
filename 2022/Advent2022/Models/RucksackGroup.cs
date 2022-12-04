@@ -1,6 +1,4 @@
-﻿using Advent2022.Enums;
-using Advent2022.Interfaces;
-using AdventShared;
+﻿using AdventShared;
 
 namespace Advent2022.Models
 {

@@ -7,17 +7,17 @@ namespace AdventShared
     {
         public static bool IsUpperCase(this char item)
         {
-            return item >= 65 && item <= 90;
+            return item >= 'A' && item <= 'Z';
         }
         
         public static int ConvertUpperTo0To25(this char item)
         {
-            return item - 65;
+            return item - 'A';
         }
         
         public static int ConvertLowerTo0To25(this char item)
         {
-            return item - 97;
+            return item - 'a';
         }
     }
 }
