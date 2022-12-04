@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-using System.Linq;
-using Advent2022.Models;
 using AdventShared;
-using Microsoft.VisualStudio.TestPlatform.Utilities.Helpers;
 using NUnit.Framework;
 
 namespace Advent2022.Tests

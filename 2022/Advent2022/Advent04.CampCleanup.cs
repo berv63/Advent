@@ -1,5 +1,4 @@
-﻿using Advent2022.Interfaces;
-using Advent2022.Models;
+﻿using Advent2022.Models;
 
 namespace Advent2022;
 
