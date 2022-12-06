@@ -11,7 +11,7 @@
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent05_SupplyStacksTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f10cfba6_002D87e2_002D498b_002Dab79_002D199b912d51c7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f10cfba6_002D87e2_002D498b_002Dab79_002D199b912d51c7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::EDBEBC4D-F462-4AD4-A1AA-53840C4EE16F::.NETFramework,Version=v4.8::Advent2021.Tests.Advent1SonarSweepTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::EDBEBC4D-F462-4AD4-A1AA-53840C4EE16F::.NETFramework,Version=v4.8::Advent2021.Tests.Advent2DiveTests&lt;/TestId&gt;&#xD;
@@ -39,5 +39,10 @@
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent03_RucksackReorgTests.RucksackReorg_Actual&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent03_RucksackReorgTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent05_SupplyStacksTests.SupplyStacks_Practice&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent06_StubTests.TuningTrouble_Practice1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent06_StubTests.TuningTrouble_Practice&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent06_StubTests.TuningTrouble_Actual&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent06_StubTests.SupplyStacksMultiMove_Practice&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent06_StubTests.SupplyStacksMultiMove_Actual&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
