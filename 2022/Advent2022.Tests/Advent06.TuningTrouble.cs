@@ -40,7 +40,7 @@ namespace Advent2022.Tests
             var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
             
             var result = Advent2022.TuningTrouble.FindUnique(fileData[0], 14);
-            Assert.AreEqual(7, result);
+            Assert.AreEqual(2145, result);
         }
     }
 }

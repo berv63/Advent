@@ -10,7 +10,7 @@ public static class TuningTrouble
         var index = 0;
         for (int i = 0; i < buffer.Length - length + 1; i++)
         {
-            if (IsUnique(buffer, i, length))
+            if (buffer.Substring(i, length).Distinct().Count() == length)
             {
                 index = i + length;
                 break;
@@ -18,11 +18,5 @@ public static class TuningTrouble
         }
 
         return index;
-    }
-
-    private static bool IsUnique(string buffer, int startIndex, int length)
-    {
-        var digitGroupings = buffer.Substring(startIndex, length).GroupBy(x => x); 
-        return digitGroupings.All(x => x.Count() == 1);
     }
 }
