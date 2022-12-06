@@ -44,5 +44,6 @@
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent06_StubTests.TuningTrouble_Actual&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent06_StubTests.SupplyStacksMultiMove_Practice&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent06_StubTests.SupplyStacksMultiMove_Actual&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent05_SupplyStacksTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
