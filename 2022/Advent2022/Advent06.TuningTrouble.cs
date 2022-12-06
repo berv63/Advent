@@ -8,9 +8,9 @@ public static class TuningTrouble
     public static int FindUnique(string buffer, int length)
     {
         var index = 0;
-        for (int i = 0; i < buffer.Length - length + 1; i++)
+        for (var i = 0; i < buffer.Length - length + 1; i++)
         {
-            if (buffer.Substring(i, length).Distinct().Count() == length)
+            if (buffer.IsDistinctSubstringForLength(i, length))
             {
                 index = i + length;
                 break;
