@@ -4,6 +4,7 @@
     {
         public string DirectoryName { get; set; }
         public int DirectorySize => GetDirectorySize();
+        private int? _directorySize = null;
         
         public DirectoryModel ParentDirectory { get; set; }
 
@@ -80,7 +81,11 @@
 
         private int GetDirectorySize()
         {
-            return Files.Sum(x => x.FileSize) + Directories.Sum(x => x.GetDirectorySize());
+            if (_directorySize != null)
+                return _directorySize.Value;
+            
+            _directorySize = Files.Sum(x => x.FileSize) + Directories.Sum(x => x.GetDirectorySize());
+            return _directorySize.Value;
         }
 
         public List<DirectoryModel> GetDirectoriesUnderSize(int size)
