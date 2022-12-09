@@ -15,6 +15,11 @@ namespace AdventShared
 
             return $@"Files\{adventNumber}\{methodType}.txt";
         }
+        
+        public static string GetFileOutputLocation(string adventNumber, string fileName)
+        {
+            return $@"Files\{adventNumber}\{fileName}.txt";
+        }
 
         public static string GetMethodName()
         {
