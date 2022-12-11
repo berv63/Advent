@@ -10,4 +10,8 @@
       <ProjectReference Include="..\..\AdventShared\AdventShared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Models\Advent06" />
+    </ItemGroup>
+
 </Project>
