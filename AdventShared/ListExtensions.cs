@@ -56,5 +56,10 @@ namespace AdventShared
 
             list[0] = lastItem;
         }
+        
+        public static int GetCommonProduct(this List<int> list)
+        {
+            return list.Aggregate(1, (current, item) => current * item);
+        }
     }
 }

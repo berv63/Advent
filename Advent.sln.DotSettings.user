@@ -63,5 +63,12 @@
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent09_StubTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent09_RopeBridgeTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent10_CathodeRayTube&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent11_MonkeyMiddleTests.MonkeyMiddle_Practice&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent11_MonkeyMiddleTests.MonkeyMiddle_Actual&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent11_MonkeyMiddleTests.MonkeyMiddleNoRelief_Practice&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent11_MonkeyMiddleTests.MonkeyMiddleNoRelief01_Practice&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent11_MonkeyMiddleTests.MonkeyMiddleNoRelief20_Practice&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent11_MonkeyMiddleTests.MonkeyMiddleNoRelief1000_Practice&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent11_MonkeyMiddleTests.MonkeyMiddleNoRelief_Actual&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

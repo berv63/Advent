@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace Advent2022.Tests
 {
     [TestFixture]
-    public class Advent10_CathodeRayTube
+    public class Advent10_CathodeRayTubeTests
     {
         [Test]
         public void CathodeRay_Practice()
