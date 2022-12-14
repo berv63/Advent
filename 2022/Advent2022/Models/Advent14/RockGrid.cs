@@ -205,18 +205,13 @@ public class RockGrid
     
     private (bool, int, int) IsTargetAirWithCoordinates(int currentY, int currentX, int targetY, int targetX)
     {
-        if(IsTargetOutOfGridBounds(targetY, targetX))
+        if(IsTargetOutOfGridBounds(targetY, targetX) || Grid[targetY][targetX] != air)
             return (false, currentY, currentX); 
-        
-        if (Grid[targetY][targetX] == air)
-        {
-            Grid[currentY][currentX] = air;
-            Grid[targetY][targetX] = sand;
+    
+        Grid[currentY][currentX] = air;
+        Grid[targetY][targetX] = sand;
 
-            return (true, targetY, targetX);
-        }
-        
-        return (false, currentY, currentX);
+        return (true, targetY, targetX);
     }
 
     private bool IsTargetOutOfGridBounds(int targetY, int targetX)
