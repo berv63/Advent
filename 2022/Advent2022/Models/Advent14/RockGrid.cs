@@ -125,70 +125,103 @@ public class RockGrid
 
     public bool RunSand()
     {
-        var result = DropSand(Source.YCoord, Source.XCoord);
-        return result;
+        return HasFloor ? DropSandWithFloor(Source.YCoord, Source.XCoord) : DropSand(Source.YCoord, Source.XCoord);
     }
 
-    private bool DropSand(int currentY, int currentX)
+    private bool DropSandWithFloor(int currentY, int currentX)
     {
-        if (HasFloor && IsSource(currentY, currentX) && IsSourceBlocked())
+        if (IsSource(currentY, currentX) && IsSourceBlocked())
         {
             Grid[currentY][currentX] = sand;
             return false;
         }
         
-        if (!HasFloor && (currentY == MaxY || DoesFallOffLeftEdge(currentY, currentX) || DoesFallOffRightEdge(currentY, currentX)))
+        if (DoesFallOffLeftEdge(currentY, currentX))
+            AddNewColumnToTheLeft();
+        else if (DoesFallOffRightEdge(currentY, currentX))
+            AddNewColumnToTheRight();
+
+        var nextRowDown = currentY + 1;
+        var (isAir, targetY, targetX) = IsTargetAirWithCoordinates(currentY, currentX, nextRowDown, currentX);
+        if (isAir)
+            return DropSandWithFloor(targetY, targetX);
+        
+        (isAir, targetY, targetX) = IsTargetAirWithCoordinates(currentY, currentX, nextRowDown, currentX - 1);
+        if (isAir)
+            return DropSandWithFloor(targetY, targetX);
+        
+        (isAir, targetY, targetX) = IsTargetAirWithCoordinates(currentY, currentX, nextRowDown, currentX + 1);
+        if (isAir)
+            return DropSandWithFloor(targetY, targetX);
+
+        return true;
+    }
+
+    private bool DropSand(int currentY, int currentX)
+    {
+        if ((currentY == MaxY || DoesFallOffLeftEdge(currentY, currentX) || DoesFallOffRightEdge(currentY, currentX)))
         {
             Grid[currentY][currentX] = disappear;
             return false;
         }
-        else if (HasFloor)
-        {
-            if (DoesFallOffLeftEdge(currentY, currentX))
-            {
-                for (int i = 0; i <= FloorY; i++)
-                {
-                    Grid[i].Add(i == FloorY ? '#' : '.');
-                    Grid[i].ShiftRight();
-                }
-
-                MaxX++;
-                Source.XCoord++;
-            }
-            else if (DoesFallOffRightEdge(currentY, currentX))
-            {
-                for (int i = 0; i <= FloorY; i++)
-                {
-                    Grid[i].Add(i == FloorY ? '#' : '.');
-                }
-                
-                MaxX++;
-            }
-        }
 
         var nextRowDown = currentY + 1;
-        if (Grid[nextRowDown][currentX] == air)
-        {
-            Grid[currentY][currentX] = air;
-            Grid[nextRowDown][currentX] = sand;
-            return DropSand(nextRowDown, currentX);
-        }
+        var (isAir, targetY, targetX) = IsTargetAirWithCoordinates(currentY, currentX, nextRowDown, currentX);
+        if (isAir)
+            return DropSand(targetY, targetX);
         
-        if (currentX > 0 && Grid[nextRowDown][currentX - 1] == air)
-        {
-            Grid[currentY][currentX] = air;
-            Grid[nextRowDown][currentX - 1] = sand;
-            return DropSand(nextRowDown, currentX - 1);
-        }
+        (isAir, targetY, targetX) = IsTargetAirWithCoordinates(currentY, currentX, nextRowDown, currentX - 1);
+        if (isAir)
+            return DropSand(targetY, targetX);
         
-        if (currentX < MaxX - MinX && Grid[nextRowDown][currentX + 1] == air)
-        {
-            Grid[currentY][currentX] = air;
-            Grid[nextRowDown][currentX + 1] = sand;
-            return DropSand(nextRowDown, currentX + 1);
-        }
+        (isAir, targetY, targetX) = IsTargetAirWithCoordinates(currentY, currentX, nextRowDown, currentX + 1);
+        if (isAir)
+            return DropSand(targetY, targetX);
 
         return true;
+    }
+
+    private void AddNewColumnToTheLeft()
+    {
+        for (int i = 0; i <= FloorY; i++)
+        {
+            Grid[i].Add(i == FloorY ? '#' : '.');
+            Grid[i].ShiftRight();
+        }
+
+        MaxX++;
+        Source.XCoord++;
+    }
+    
+    private void AddNewColumnToTheRight()
+    {
+        for (var i = 0; i <= FloorY; i++)
+        {
+            Grid[i].Add(i == FloorY ? '#' : '.');
+        }
+            
+        MaxX++;
+    }
+    
+    private (bool, int, int) IsTargetAirWithCoordinates(int currentY, int currentX, int targetY, int targetX)
+    {
+        if(IsTargetOutOfGridBounds(targetY, targetX))
+            return (false, currentY, currentX); 
+        
+        if (Grid[targetY][targetX] == air)
+        {
+            Grid[currentY][currentX] = air;
+            Grid[targetY][targetX] = sand;
+
+            return (true, targetY, targetX);
+        }
+        
+        return (false, currentY, currentX);
+    }
+
+    private bool IsTargetOutOfGridBounds(int targetY, int targetX)
+    {
+        return targetX < 0 || targetX > MaxX - MinX || targetY > FloorY;
     }
 
     private bool IsSource(int currentY, int currentX)
