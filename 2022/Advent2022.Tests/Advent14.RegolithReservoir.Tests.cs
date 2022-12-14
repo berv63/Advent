@@ -47,7 +47,7 @@ namespace Advent2022.Tests
             var coordinates = Advent2022.RegolithReservoir.BuildRockCoordinates(fileData);
             var grid = Advent2022.RegolithReservoir.BuildRockGrid(coordinates, true);
             var countSettled = Advent2022.RegolithReservoir.GetCountSettled(grid);
-            Assert.AreEqual(858, countSettled);
+            Assert.AreEqual(26845, countSettled);
         }
     }
 }
