@@ -39,5 +39,13 @@ namespace AdventShared
         {
             File.WriteAllLines(fileLocation, debug);
         }
+        
+        public static void AppendFile(string fileLocation, string debug)
+        {
+            using (var sw = File.AppendText(fileLocation))
+            {
+                sw.WriteLine(debug);
+            }
+        }
     }
 }
