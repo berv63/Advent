@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using Advent2022.Models;
-using AdventShared;
+﻿using Advent2022.Models;
 
 namespace Advent2022;
 

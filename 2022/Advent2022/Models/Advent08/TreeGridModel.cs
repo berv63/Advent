@@ -1,7 +1,4 @@
-﻿using System.Data;
-using AdventShared;
-
-namespace Advent2022.Models
+﻿namespace Advent2022.Models
 {
     public class TreeGridModel
     {

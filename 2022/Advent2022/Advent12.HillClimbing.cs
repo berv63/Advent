@@ -1,11 +1,4 @@
-﻿using System.Data;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
-using Advent2022.Models;
-using Advent2022.Models.Advent10;
-using Advent2022.Models.Advent11;
-using Advent2022.Models.Advent12;
-using AdventShared;
+﻿using Advent2022.Models.Advent12;
 
 namespace Advent2022;
 

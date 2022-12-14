@@ -1,6 +1,4 @@
-﻿using System.Dynamic;
-
-namespace Advent2022.Models.Advent12;
+﻿namespace Advent2022.Models.Advent12;
 
 public class HillClimbModel
 {

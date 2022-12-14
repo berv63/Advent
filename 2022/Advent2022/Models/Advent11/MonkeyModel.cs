@@ -1,6 +1,4 @@
-﻿using System.Dynamic;
-
-namespace Advent2022.Models.Advent11;
+﻿namespace Advent2022.Models.Advent11;
 
 public class MonkeyModel
 {

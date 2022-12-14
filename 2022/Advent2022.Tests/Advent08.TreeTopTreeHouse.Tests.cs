@@ -1,4 +1,3 @@
-using System.Linq;
 using AdventShared;
 using NUnit.Framework;
 
