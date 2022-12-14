@@ -5,17 +5,17 @@ namespace Advent2022.Models.Advent14;
 
 public class RockGrid
 {
-    public List<List<char>> Grid { get; set; } = new();
+    private List<List<char>> Grid { get; set; } = new();
     
-    public RockCoordinates Source { get; set; }
+    private RockCoordinates Source { get; set; }
     
-    public int MinX { get; set; }
+    private int MinX { get; set; }
     private int MinY { get; set; }
     
     private int MaxX { get; set; }
     private int MaxY { get; set; }
     
-    public bool HasFloor { get; set; }
+    private bool HasFloor { get; set; }
     private int FloorY { get; set; }
 
     private const char source = 'S';
@@ -183,7 +183,7 @@ public class RockGrid
 
     private void AddNewColumnToTheLeft()
     {
-        for (int i = 0; i <= FloorY; i++)
+        for (var i = 0; i <= FloorY; i++)
         {
             Grid[i].Add(i == FloorY ? '#' : '.');
             Grid[i].ShiftRight();
@@ -205,7 +205,7 @@ public class RockGrid
     
     private (bool, int, int) IsTargetAirWithCoordinates(int currentY, int currentX, int targetY, int targetX)
     {
-        if(IsTargetOutOfGridBounds(targetY, targetX) || Grid[targetY][targetX] != air)
+        if(IsTargetOutOfGridBounds(targetY, targetX) || IsRockOrSand(Grid[targetY][targetX]))
             return (false, currentY, currentX); 
     
         Grid[currentY][currentX] = air;
@@ -227,7 +227,9 @@ public class RockGrid
     private bool IsSourceBlocked()
     {
         var nextRowDown = Source.YCoord + 1;
-        return IsRockOrSand(Grid[nextRowDown][Source.XCoord - 1]) && IsRockOrSand(Grid[nextRowDown][Source.XCoord]) && IsRockOrSand(Grid[nextRowDown][Source.XCoord + 1]);
+        return IsRockOrSand(Grid[nextRowDown][Source.XCoord - 1]) && 
+               IsRockOrSand(Grid[nextRowDown][Source.XCoord]) && 
+               IsRockOrSand(Grid[nextRowDown][Source.XCoord + 1]);
 
     }
 
@@ -245,7 +247,7 @@ public class RockGrid
 
     private bool IsRockOrSand(char item)
     {
-        return item == rock || item == sand;
+        return item is rock or sand;
     }
 
     public int GetCountSand()
