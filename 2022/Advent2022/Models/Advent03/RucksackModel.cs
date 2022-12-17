@@ -1,6 +1,6 @@
 ﻿using AdventShared;
 
-namespace Advent2022.Models
+namespace Advent2022.Models.Advent03
 {
     public class RucksackModel
     {

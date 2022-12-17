@@ -1,7 +1,7 @@
 ﻿using Advent2022.Enums;
 using Advent2022.Interfaces;
 
-namespace Advent2022.Models
+namespace Advent2022.Models.Advent02
 {
     public class RockPaperScissorsRound: IRockPaperScissorsRound
     {

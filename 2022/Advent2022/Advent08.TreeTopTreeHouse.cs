@@ -1,4 +1,4 @@
-﻿using Advent2022.Models;
+﻿using Advent2022.Models.Advent08;
 
 namespace Advent2022;
 

@@ -1,4 +1,4 @@
-﻿namespace Advent2022.Models
+﻿namespace Advent2022.Models.Advent07
 {
     public class FileModel
     {

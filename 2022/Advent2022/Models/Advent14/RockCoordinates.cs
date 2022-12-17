@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace Advent2022.Models.Advent14;
+﻿namespace Advent2022.Models.Advent14;
 
 public class RockCoordinates
 {
