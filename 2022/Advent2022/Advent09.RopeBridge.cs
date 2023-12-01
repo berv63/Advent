@@ -1,7 +1,4 @@
-﻿using System.Data;
-using System.Runtime.CompilerServices;
-using Advent2022.Models;
-using AdventShared;
+﻿using Advent2022.Models.Advent09;
 
 namespace Advent2022;
 
@@ -19,21 +16,22 @@ public static class RopeBridge
         {
             grid.MoveHead(command);
         }
-        
-        grid.PrintGrid();
 
         return grid;
     }
 
-    public static int RunCommands(List<HeadTailCommandModel> commands, HeadTailGridModel grid, int indices)
+    public static void RunCommands(List<HeadTailCommandModel> commands, HeadTailGridModel grid, int indices)
     {
         grid.HeadTailIndex = new HeadTailIndexModel(grid.Grid, indices);
         foreach (var command in commands)
         {
             grid.RunCommand(command);
+            grid.PrintCurrentMapping();
         }
-        
-        grid.PrintGrid();
-        return grid.GetTailVisitCount();
+    }
+
+    public static int GetVisitCount(HeadTailGridModel grid, int index)
+    {
+        return grid.GetTailVisitCount(index);
     }
 }

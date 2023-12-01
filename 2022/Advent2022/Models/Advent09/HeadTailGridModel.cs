@@ -1,7 +1,6 @@
-﻿using System.Data;
-using AdventShared;
+﻿using AdventShared;
 
-namespace Advent2022.Models
+namespace Advent2022.Models.Advent09
 {
     public class HeadTailGridModel
     {
@@ -10,10 +9,22 @@ namespace Advent2022.Models
 
         public HeadTailGridModel(int indices)
         {
-            Grid = new List<List<HeadTailLocationModel>> { new (){ new HeadTailLocationModel(true) } };
+            Grid = new List<List<HeadTailLocationModel>> { new (){ new HeadTailLocationModel(indices) } };
             HeadTailIndex = new HeadTailIndexModel(indices);
         }
-
+        
+        public void PrintCurrentMapping()
+        {
+            var gridPrint = Grid.Select(x => x.Select(y => y.CurrentItem != null ? y.CurrentItem.Value.ToString() : "."));
+            FileExtensions.WriteFile($@"..\..\..\..\{FileExtensions.GetFileOutputLocation("Advent09", $"GridOutput")}", gridPrint.Select(x => string.Join("", x)));
+        }
+        
+        public void PrintGrid(int index)
+        {
+            var gridPrint = Grid.Select(x => x.Select(y => y.IndexesVisited.Contains(index) ? index.ToString() : "."));
+            FileExtensions.WriteFile($@"..\..\..\..\{FileExtensions.GetFileOutputLocation("Advent09", $"GridOutput{index}")}", gridPrint.Select(x => string.Join("", x)));
+        }
+        
         public void RunCommand(HeadTailCommandModel command)
         {
             for (var i = 0; i < command.Distance; i++)
@@ -22,15 +33,18 @@ namespace Advent2022.Models
                 
                 HeadTailIndex.UpdateCurrentHeadCoordinates(command);
                 
-                GetCurrentHeadLocation().HasHeadVisited = true;
+                GetCurrentHeadLocation().IndexesVisited.Add(0);
+                GetCurrentHeadLocation().CurrentItem = null;
+                HeadTailIndex.HeadCoordinates.DirectionMoved = command.Direction.ToString();
                 GetCurrentHeadLocation().IsCurrentLocation = true;
 
-                for (var j = 0; j < HeadTailIndex.Coordinates.Count - 1; j++)
+                for (var j = 1; j < HeadTailIndex.Coordinates.Count; j++)
                 {
-                    if (!HeadTailIndex.AreNodesAdjacent(j, j+1))
+                    if (!HeadTailIndex.AreNodesAdjacent(j-1, j))
                     {
-                        HeadTailIndex.UpdateCurrentTailCoordinates(j+1, command);
-                        GetCurrentTailLocation(j+1).HasTailVisited = true;
+                        HeadTailIndex.UpdateCurrentTailCoordinates(j, command);
+                        GetCurrentTailLocation(j).IndexesVisited.Add(j);
+                        GetCurrentHeadLocation().CurrentItem = j;
                     }
                 }
             }
@@ -44,12 +58,6 @@ namespace Advent2022.Models
         private HeadTailLocationModel GetCurrentTailLocation(int index)
         {
             return Grid[HeadTailIndex.GetLocationByIndex(index).XCoordinate][HeadTailIndex.GetLocationByIndex(index).YCoordinate];
-        }
-        
-        public void PrintGrid()
-        {
-            var gridPrint = Grid.Select(x => x.Select(y => y.HasTailVisited ? "T" : "."));
-            FileExtensions.WriteFile($@"..\..\..\..\{FileExtensions.GetFileOutputLocation("Advent09", "GridOutput")}", gridPrint.Select(x => string.Join("", x)));
         }
         
         public void MoveHead(HeadTailCommandModel commandModel)
@@ -130,7 +138,7 @@ namespace Advent2022.Models
         private void AddNewRowUp()
         {
             Grid.Add(new List<HeadTailLocationModel>());
-            for (var j = Grid.Count - 1; j > 0; j--)
+            for (var j = Grid.Count - 1; j >  0; j--)
             {
                 Grid[j] = Grid[j - 1].CopyValues();
             }
@@ -153,7 +161,7 @@ namespace Advent2022.Models
 
         private void AddNewColumnLeft()
         {
-            for (var j = Grid.Count - 1; j > 0; j--)
+            for (var j = Grid.Count - 1; j >= 0; j--)
             {
                 Grid[j].Add(new HeadTailLocationModel());
                 Grid[j].ShiftRight(); 
@@ -168,12 +176,12 @@ namespace Advent2022.Models
             }
         }
 
-        public int GetTailVisitCount()
+        public int GetTailVisitCount(int index)
         {
             var result = 0;
             foreach (var row in Grid)
             {
-                result += row.Count(x => x.HasTailVisited);
+                result += row.Count(x => x.IndexesVisited.Contains(index));
             }
 
             return result;

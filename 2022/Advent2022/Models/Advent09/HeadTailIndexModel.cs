@@ -1,4 +1,4 @@
-﻿namespace Advent2022.Models
+﻿namespace Advent2022.Models.Advent09
 {
     public class HeadTailIndexModel
     {
@@ -58,27 +58,40 @@
         
         public void UpdateCurrentTailCoordinates(int index, HeadTailCommandModel command)
         {
-            switch (command.Direction)
-            {
-                case 'U':
-                    SetCurrentTailCoordinates(index, HeadCoordinates.XCoordinate + 1, HeadCoordinates.YCoordinate);
-                    break;
-                case 'D':
-                    SetCurrentTailCoordinates(index, HeadCoordinates.XCoordinate - 1, HeadCoordinates.YCoordinate);
-                    break;
-                case 'L':
-                    SetCurrentTailCoordinates(index, HeadCoordinates.XCoordinate, HeadCoordinates.YCoordinate + 1);
-                    break;
-                case 'R':
-                    SetCurrentTailCoordinates(index, HeadCoordinates.XCoordinate, HeadCoordinates.YCoordinate - 1);
-                    break;
-            }
+            var previousLocation = GetLocationByIndex(index - 1);
+            var currentLocation = GetLocationByIndex(index);
+
+            var xCoord = currentLocation.XCoordinate;
+            var yCoord = currentLocation.YCoordinate;
+            
+            if(previousLocation.DirectionMoved.Contains("U"))
+                xCoord = currentLocation.XCoordinate - 1;
+            if(previousLocation.DirectionMoved.Contains("D"))
+                xCoord = currentLocation.XCoordinate + 1;
+            if (previousLocation.DirectionMoved.Contains("L"))
+                yCoord = currentLocation.YCoordinate - 1;
+            if(previousLocation.DirectionMoved.Contains("R"))
+                yCoord = currentLocation.YCoordinate + 1;
+            
+            SetCurrentTailCoordinates(index, xCoord, yCoord);
         }
 
         private void SetCurrentTailCoordinates(int index, int xCoordinate, int yCoordinate)
         {
-            Coordinates.Single(x => x.Index == index).XCoordinate = xCoordinate;
-            Coordinates.Single(x => x.Index == index).YCoordinate = yCoordinate;
+            var currentTail = Coordinates.Single(x => x.Index == index);
+
+            currentTail.DirectionMoved = "";
+            if (xCoordinate - currentTail.XCoordinate == 1)
+                currentTail.DirectionMoved += "D";
+            if (xCoordinate - currentTail.XCoordinate == -1)
+                currentTail.DirectionMoved += "U";
+            if (yCoordinate - currentTail.YCoordinate == -1)
+                currentTail.DirectionMoved += "L";
+            if (yCoordinate - currentTail.YCoordinate == 1)
+                currentTail.DirectionMoved += "R"; 
+                
+            currentTail.XCoordinate = xCoordinate;
+            currentTail.YCoordinate = yCoordinate;
         }
 
 

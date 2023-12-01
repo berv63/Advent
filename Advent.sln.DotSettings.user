@@ -78,5 +78,7 @@
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent15_BeaconExclusionZoneTests.Reservoir_Actual&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent15_BeaconExclusionZoneTests.ReservoirOnly_Practice&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent15_BeaconExclusionZoneTests.ReservoirOnly_Actual&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent16_ProboscideaVolcaniumTests.VolcanoValve_Practice&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent17_PyroclasticFlowTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

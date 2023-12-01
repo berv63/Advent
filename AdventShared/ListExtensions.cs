@@ -46,6 +46,17 @@ namespace AdventShared
             return result;
         }
         
+        public static List<List<T>> CopyValues<T>(this List<List<T>> values)
+        {
+            var result = new List<List<T>>();
+            for (var i = 0; i < values.Count; i++)
+            {
+                result.Add(values[i].CopyValues());
+            }
+
+            return result;
+        }
+        
         public static void ShiftRight<T>(this List<T> list)
         {
             var lastItem = list.Last();

@@ -1,4 +1,4 @@
-﻿namespace Advent2022.Models
+﻿namespace Advent2022.Models.Advent09
 {
     public class CoordinatesModel
     {
@@ -6,6 +6,8 @@
         
         public int XCoordinate { get; set; }
         public int YCoordinate { get; set; }
+
+        public string DirectionMoved { get; set; } = "";
 
         public CoordinatesModel(int index, int xCoord, int yCoord)
         {

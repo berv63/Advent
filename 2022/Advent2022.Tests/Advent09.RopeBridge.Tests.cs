@@ -1,4 +1,3 @@
-using System.Linq;
 using AdventShared;
 using NUnit.Framework;
 
@@ -12,9 +11,11 @@ namespace Advent2022.Tests
         {
             var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
             
+            var indices = 1;
             var commands = Advent2022.RopeBridge.BuildCommands(fileData);
-            var grid = Advent2022.RopeBridge.GetGrid(commands, 1);
-            var visitedCount = Advent2022.RopeBridge.RunCommands(commands, grid, 1);
+            var grid = Advent2022.RopeBridge.GetGrid(commands, indices);
+            Advent2022.RopeBridge.RunCommands(commands, grid, indices);
+            var visitedCount = Advent2022.RopeBridge.GetVisitCount(grid, indices);
             Assert.AreEqual(13, visitedCount);
         }
         
@@ -23,32 +24,52 @@ namespace Advent2022.Tests
         {
             var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
             
+            var indices = 1;
             var commands = Advent2022.RopeBridge.BuildCommands(fileData);
-            var grid = Advent2022.RopeBridge.GetGrid(commands, 1);
-            var visitedCount = Advent2022.RopeBridge.RunCommands(commands, grid, 1);
+            var grid = Advent2022.RopeBridge.GetGrid(commands, indices);
+            Advent2022.RopeBridge.RunCommands(commands, grid, indices);
+            var visitedCount = Advent2022.RopeBridge.GetVisitCount(grid, indices);
             Assert.AreEqual(6470, visitedCount);
         }
         
-        /*
         [Test]
-        public void ScenicScore_Practice()
+        public void RopeBridgeMulti_Practice()
         {
             var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
-            
-            var forrest = Advent2022.TreeTopTreeHouse.BuildForrest(fileData);
-            var scenicScore = Advent2022.TreeTopTreeHouse.GetScenicScore(forrest);
-            Assert.AreEqual(8, scenicScore);
+
+            var indices = 2;
+            var commands = Advent2022.RopeBridge.BuildCommands(fileData);
+            var grid = Advent2022.RopeBridge.GetGrid(commands, indices);
+            Advent2022.RopeBridge.RunCommands(commands, grid, indices);
+            var visitedCount = Advent2022.RopeBridge.GetVisitCount(grid, indices); 
+            Assert.AreEqual(7, visitedCount);
         }
         
         [Test]
-        public void ScenicScore_Actual()
+        public void RopeBridgeMulti_Practice2()
+        {
+            var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
+
+            var indices = 9;
+            var commands = Advent2022.RopeBridge.BuildCommands(fileData);
+            var grid = Advent2022.RopeBridge.GetGrid(commands, indices);
+            Advent2022.RopeBridge.RunCommands(commands, grid, indices);
+            var visitedCount = Advent2022.RopeBridge.GetVisitCount(grid, indices); 
+            Assert.AreEqual(36, visitedCount);
+        }
+        
+        [Test]
+        public void RopeBridgeMulti_Actual()
         {
             var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
             
-            var forrest = Advent2022.TreeTopTreeHouse.BuildForrest(fileData);
-            var scenicScore = Advent2022.TreeTopTreeHouse.GetScenicScore(forrest);
-            Assert.AreNotEqual(31248, scenicScore);
-            Assert.AreEqual(313200, scenicScore);
-        }*/
+            var indices = 9;
+            var commands = Advent2022.RopeBridge.BuildCommands(fileData);
+            var grid = Advent2022.RopeBridge.GetGrid(commands, indices);
+            Advent2022.RopeBridge.RunCommands(commands, grid, indices);
+            var visitedCount = Advent2022.RopeBridge.GetVisitCount(grid, indices); 
+            Assert.AreEqual(725, visitedCount);
+            Assert.AreEqual(1, visitedCount);
+        }
     }
 }
