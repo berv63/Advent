@@ -48,8 +48,8 @@ public class Game
 
     private int GetColorDraw(IEnumerable<string> drawSplit, string color)
     {
-        var blueDraw = drawSplit.SingleOrDefault(x => x.Contains(color));
-        return blueDraw == null ? 0 : int.Parse(blueDraw.Split(" ").First());
+        var colorDraw = drawSplit.SingleOrDefault(x => x.Contains(color));
+        return colorDraw == null ? 0 : int.Parse(colorDraw.Split(" ").First());
     }
 
     public bool IsPossible(int red, int green, int blue)
