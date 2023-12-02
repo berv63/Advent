@@ -22,5 +22,9 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent01.Advent01_TrebuchetTests_Part1&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent01.Advent01_TrebuchetTests_Part2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent02.Advent02_CubeConundrumTests_Part1.EmptyInput_ReturnsZero&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent02.Advent02_CubeConundrumTests_Part1.TestGame_ReturnsResult&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent02.Advent02_CubeConundrumTests_Part1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent02.Advent02_CubeConundrumTests_Part2&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
