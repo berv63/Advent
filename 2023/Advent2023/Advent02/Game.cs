@@ -6,7 +6,7 @@ public class Game
 
     private List<CubeCount> DrawCounts { get; set; } = new();
 
-    public CubeCount RequiredMinimumDraw => new()
+    public CubeCount RequiredMinimumBagCount => new()
     {
         RedCount = DrawCounts.Max(x => x.RedCount),
         GreenCount = DrawCounts.Max(x => x.GreenCount),

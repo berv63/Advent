@@ -21,6 +21,6 @@ public class CubeConundrum
 
     public int GetMinimumDrawPowerSum()
     {
-        return Games.Select(x => x.RequiredMinimumDraw.Power).Sum();
+        return Games.Select(x => x.RequiredMinimumBagCount.Power).Sum();
     }
 }
