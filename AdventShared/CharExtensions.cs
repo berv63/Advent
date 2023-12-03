@@ -19,5 +19,15 @@ namespace AdventShared
         {
             return item - 'a';
         }
+
+        public static bool IsSymbol(this char character, List<char> excludingChars)
+        {
+            return character.IsSymbol() && !excludingChars.Contains(character);
+        }
+
+        public static bool IsSymbol(this char character)
+        {
+            return character is >= '!' and <= '/' or >= ':' and <= '@';
+        }
     }
 }

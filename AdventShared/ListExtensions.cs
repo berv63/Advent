@@ -72,5 +72,13 @@ namespace AdventShared
         {
             return list.Aggregate(1, (current, item) => current * item);
         }
+
+        public static bool IsWithinMap(this List<string> map, int targetRow, int targetColumn)
+        {
+            return targetRow >= 0 ||
+                   targetColumn >= 0 ||
+                   targetRow < map.Count ||
+                   targetColumn < map[targetRow].Length;
+        }
     }
 }
