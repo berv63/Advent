@@ -4,10 +4,10 @@ namespace Advent2023.Advent03;
 
 public class Schematic
 {
-    private List<string> EngineMap { get; set; }
+    private List<string> EngineMap { get; }
 
-    public List<Part> Parts { get; set; } = new();
-    public List<Gear> Gears { get; set; } = new();
+    public List<Part> Parts { get; } = new();
+    public List<Gear> Gears { get; } = new();
 
     public Schematic(List<string> engineMap)
     {
