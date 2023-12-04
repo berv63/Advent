@@ -29,5 +29,8 @@
     &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent03.Advent02_GearRatiosTests_Part1&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent03.Advent03_GearRatiosTests_Part1&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent03.Advent03_GearRatiosTests_Part2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent04.Advent04_ScratchCardsTests_Part1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent03.Advent04_ScratchCardsTests_Part2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent04.Advent04_ScratchCardsTests_Part2&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
