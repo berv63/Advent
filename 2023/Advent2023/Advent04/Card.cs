@@ -6,7 +6,11 @@ public class Card
     private IEnumerable<int> WinningNumbers => GetWinningNumbers();
     private IEnumerable<int> OwnedNumbers => GetOwnedNumbers();
 
+    private int? _matchCount { get; set; }
+    private int MatchCount => _matchCount ?? GetMatchCount();
+
     private List<Card> _childCards = new();
+    public bool HasBeenPopulated = false;
 
     public int Score => GetScore();
 
@@ -36,24 +40,22 @@ public class Card
 
     private int GetScore()
     {
-        var matchCount = GetMatchCount();
-        return matchCount == 0 ? 0 : (int)Math.Pow(2, matchCount - 1);
+        return MatchCount == 0 ? 0 : (int)Math.Pow(2, MatchCount - 1);
     }
 
     private int GetMatchCount()
     {
-        return OwnedNumbers.Count(owned => WinningNumbers.Contains(owned));
+        _matchCount = OwnedNumbers.Count(owned => WinningNumbers.Contains(owned));
+        return _matchCount.Value;
     }
 
-    public void PopulateChildCards(List<Card> cards)
+    public void PopulateChildCards(IEnumerable<Card> cards)
     {
-        var matchCount = GetMatchCount();
-        if (matchCount == 0) return;
-
-        _childCards = GetNextNCards(cards, matchCount);
+        if (MatchCount == 0) return;
+        _childCards = GetNextNCards(cards, MatchCount);
     }
 
-    private List<Card> GetNextNCards(List<Card> cards, int n)
+    private List<Card> GetNextNCards(IEnumerable<Card> cards, int n)
     {
         return cards.Where(x => x.CardNumber > CardNumber && x.CardNumber <= CardNumber + n).ToList();
     }
@@ -64,17 +66,19 @@ public class Card
         const int selfCount = 1;
         if (_childCards.Count == 0)
         {
+            HasBeenPopulated = true;
             CopiesAccountedFor = selfCount;
             return;
         }
 
         PopulateChildCopiesAccountedFor();
         CopiesAccountedFor ??= _childCards.Sum(x => x.CopiesAccountedFor) + selfCount;
+        HasBeenPopulated = true;
     }
 
     private void PopulateChildCopiesAccountedFor()
     {
-        foreach (var card in _childCards)
+        foreach (var card in _childCards.Where(x => !x.HasBeenPopulated))
         {
             card.PopulateCopiesAccountedFor();
         }
