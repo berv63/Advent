@@ -3,7 +3,7 @@
 public class Map
 {
     public MapType Type { get; set; }
-    public List<MapValues> MapValues { get; set; }
+    public List<MapValues> MapValues { get; set; } = new();
 
     public Map? ChildMap { get; set; }
 
@@ -42,13 +42,14 @@ public class Map
         var mapValues = new List<MapValues>();
         while (index < input.Count && input[index] != "")
         {
-            var mapValue = new MapValues(input[index++]);
+            var mapValue = new MapValues(input[index++], Type);
             mapValues.Add(mapValue);
         }
 
         MapValues = mapValues.OrderBy(x => x.SourceRangeStart).ToList();
 
         PopulateGapMapValues();
+
     }
 
     private void PopulateGapMapValues()
@@ -73,7 +74,7 @@ public class Map
     private void PopulateGapMapValue(long startValue, long endValue)
     {
         var range = endValue - startValue + 1;
-        MapValues.Add(new MapValues($"{startValue} {startValue} {range}"));
+        MapValues.Add(new MapValues($"{startValue} {startValue} {range}", Type));
         MapValues = MapValues.OrderBy(x => x.SourceRangeStart).ToList();
     }
 
@@ -88,23 +89,108 @@ public class Map
         ChildMap.PopulateMapHierarchy(input, index);
     }
 
-    public void PopulateChildMapValues()
-    {
-        if (ChildMap == null)
-            return;
-
-        foreach (var mapValue in MapValues)
-        {
-            mapValue.ChildMapValues = mapValue.GetChildMapValues(ChildMap.MapValues);
-        }
-
-        ChildMap.PopulateChildMapValues();
-    }
-
     public long GetDestination(long sourceValue)
     {
         var mapValues = MapValues.FirstOrDefault(x => x.ContainsSource(sourceValue));
         var destination = mapValues?.GetDestination(sourceValue) ?? sourceValue;
         return ChildMap?.GetDestination(destination) ?? destination;
+    }
+
+    public void SplitMapValues(ref bool hasSplit)
+    {
+        if (ChildMap == null) return;
+        SplitMe(ref hasSplit);
+        SplitChildren(ref hasSplit);
+        ChildMap.SplitMapValues(ref hasSplit);
+    }
+
+    private void SplitMe(ref bool hasSplit)
+    {
+        var newMapValues = new List<MapValues>();
+        foreach (var mapValue in MapValues)
+        {
+            var children = mapValue.GetIncludedChildMapValuesSorted(ChildMap!.MapValues);
+            foreach (var child in children)
+            {
+                var newDestinationStart = mapValue.DestinationRangeStart;
+                if (child.SourceRangeStart > mapValue.DestinationRangeStart)
+                {
+                    newDestinationStart = child.SourceRangeStart;
+                }
+
+                var newDestinationEnd = mapValue.DestinationRangeEnd;
+                if (child.SourceRangeEnd < mapValue.DestinationRangeEnd)
+                {
+                    newDestinationEnd = child.SourceRangeEnd;
+                }
+
+                BuildSplitMapValue(mapValue, newDestinationStart, newDestinationEnd, newMapValues, ref hasSplit);
+            }
+        }
+        MapValues = newMapValues;
+    }
+
+    private void BuildSplitMapValue(MapValues currentMapValue, long newDestinationStart, long newDestinationEnd, List<MapValues> newMapValues, ref bool hasSplit)
+    {
+        if (currentMapValue.DestinationEquals(newDestinationStart, newDestinationEnd))
+        {
+             newMapValues.Add(currentMapValue);
+             return;
+        }
+
+        hasSplit = true;
+
+        var destinationStartDifference = newDestinationStart - currentMapValue.DestinationRangeStart;
+        var newSourceStart = currentMapValue.SourceRangeStart + destinationStartDifference;
+
+        var destinationEndDifference = newDestinationEnd - currentMapValue.DestinationRangeEnd;
+        var newSourceEnd = currentMapValue.SourceRangeEnd + destinationEndDifference;
+
+        newMapValues.Add(new MapValues(newSourceStart, newSourceEnd, newDestinationStart, newDestinationEnd, currentMapValue.Type));
+    }
+
+    private void SplitChildren(ref bool hasSplit)
+    {
+        var newMapValues = new List<MapValues>();
+        foreach (var mapValue in ChildMap!.MapValues)
+        {
+            var parentMap = mapValue.GetIncludedParentMapValuesSorted(MapValues);
+            foreach (var parent in parentMap)
+            {
+                var newSourceStart = mapValue.SourceRangeStart;
+                if (parent.DestinationRangeStart > mapValue.SourceRangeStart)
+                {
+                    newSourceStart = parent.DestinationRangeStart;
+                }
+
+                var newSourceEnd = mapValue.SourceRangeEnd;
+                if (parent.DestinationRangeEnd < mapValue.SourceRangeEnd)
+                {
+                    newSourceEnd = parent.DestinationRangeEnd;
+                }
+
+                BuildSplitChildMapValue(mapValue, newSourceStart, newSourceEnd, newMapValues, ref hasSplit);
+            }
+        }
+        ChildMap.MapValues = newMapValues;
+    }
+
+    private void BuildSplitChildMapValue(MapValues currentMapValue, long newSourceStart, long newSourceEnd, List<MapValues> newMapValues, ref bool hasSplit)
+    {
+        if (currentMapValue.SourceEquals(newSourceStart, newSourceEnd))
+        {
+            newMapValues.Add(currentMapValue);
+            return;
+        }
+
+        hasSplit = true;
+
+        var sourceStartDifference = newSourceStart - currentMapValue.SourceRangeStart;
+        var newDestinationStart = currentMapValue.DestinationRangeStart + sourceStartDifference;
+
+        var sourceEndDifference = newSourceEnd - currentMapValue.SourceRangeEnd;
+        var newDestinationEnd = currentMapValue.DestinationRangeEnd + sourceEndDifference;
+
+        newMapValues.Add(new MapValues(newSourceStart, newSourceEnd, newDestinationStart, newDestinationEnd, currentMapValue.Type));
     }
 }

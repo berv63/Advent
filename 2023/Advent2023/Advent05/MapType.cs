@@ -2,6 +2,7 @@
 
 public enum MapType
 {
+    Seed,
     SeedToSoil,
     SoilToFertilizer,
     FertilizerToWater,

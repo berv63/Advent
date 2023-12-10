@@ -15,17 +15,17 @@ public class Advent05_FertilizerTests_Part2
     {
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
-        SUT = new FoodProduction(fileData);
+        SUT = new FoodProduction(fileData, true);
         Assert.Equal(46, SUT.GetClosestInitialSeedLocationRanged());
     }
 
     [Fact]
-    public void FertilizerSum_Practice1()
+    public void FertilizerSum2_Practice()
     {
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
-        SUT = new FoodProduction(fileData);
-        Assert.Equal(46, SUT.GetClosestInitialSeedLocationRanged());
+        SUT = new FoodProduction(fileData, true);
+        Assert.Equal(46, SUT.GetClosestInitialSeedLocationRanged2());
     }
 
     [Fact]
@@ -33,7 +33,7 @@ public class Advent05_FertilizerTests_Part2
     {
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
-        SUT = new FoodProduction(fileData);
-        Assert.Equal(0, SUT.GetClosestInitialSeedLocationRanged());
+        SUT = new FoodProduction(fileData, true);
+        Assert.Equal(46, SUT.GetClosestInitialSeedLocationRanged2());
     }
 }

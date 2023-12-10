@@ -2,35 +2,61 @@
 
 public class MapValues
 {
-    public long DestinationRangeStart => GetDestinationRangeStart();
-    public long DestinationRangeEnd => DestinationRangeStart + RangeLength - 1;
+    public MapType Type { get; set; }
+    public long DestinationRangeStart { get; set; }
+    public long DestinationRangeEnd { get; set; }
     public long SourceRangeStart { get; set; }
-    public long SourceRangeEnd => SourceRangeStart + RangeLength - 1;
-    private long RangeLength => GetRangeLength();
+    public long SourceRangeEnd { get; set; }
 
-    public List<MapValues> ChildMapValues { get; set; } = new();
+    public MapValues? ChildMapValue { get; set; }
 
-    private string _map { get; set; }
 
-    public MapValues(string map)
+    public MapValues(string map, MapType type)
     {
-        _map = map;
-        SourceRangeStart = GetSourceRangeStart();
+        Type = type;
+        SourceRangeStart = GetSourceRangeStart(map);
+        DestinationRangeStart = GetDestinationRangeStart(map);
+
+        var range = GetRangeLength(map);
+
+        SourceRangeEnd = SourceRangeStart + range - 1;
+        DestinationRangeEnd = DestinationRangeStart + range - 1;
     }
 
-    private long GetDestinationRangeStart()
+    public MapValues(long sourceStart, long sourceEnd, long destinationStart, long destinationEnd, MapType type)
     {
-        return long.Parse(_map.Split(" ").First());
+        SourceRangeStart = sourceStart;
+        SourceRangeEnd = sourceEnd;
+
+        DestinationRangeStart = destinationStart;
+        DestinationRangeEnd = destinationEnd;
+
+        Type = type;
     }
 
-    private long GetSourceRangeStart()
+    private long GetDestinationRangeStart(string map)
     {
-        return long.Parse(_map.Split(" ")[1]);
+        return long.Parse(map.Split(" ").First());
     }
 
-    private long GetRangeLength()
+    private long GetSourceRangeStart(string map)
     {
-        return long.Parse(_map.Split(" ").Last());
+        return long.Parse(map.Split(" ")[1]);
+    }
+
+    private long GetRangeLength(string map)
+    {
+        return long.Parse(map.Split(" ").Last());
+    }
+
+    public bool DestinationEquals(long destinationStart, long destinationEnd)
+    {
+        return destinationStart == DestinationRangeStart && destinationEnd == DestinationRangeEnd;
+    }
+
+    public bool SourceEquals(long sourceStart, long sourceEnd)
+    {
+        return sourceStart == SourceRangeStart && sourceEnd == SourceRangeEnd;
     }
 
     public bool ContainsSource(long source)
@@ -44,32 +70,27 @@ public class MapValues
         return DestinationRangeStart + sourceMapIndex;
     }
 
-    public void PopulateChildMapValuesBase(Map childMap)
+    public List<MapValues> GetIncludedChildMapValuesSorted(List<MapValues> childMapValues)
     {
-        ChildMapValues = childMap.MapValues.Where(x => x.SourceRangeStart < DestinationRangeEnd && x.SourceRangeEnd > DestinationRangeStart).ToList();
-    }
-
-    public List<MapValues> GetChildMapValues(List<MapValues> childMapValues)
-    {
-        return childMapValues.Where(x => x.SourceRangeStart < DestinationRangeEnd && x.SourceRangeEnd > DestinationRangeStart).ToList();
-    }
-
-    /*public void GetMinDestination(MapValues mapValues, out (long destination, long finalDestination) values)
-    {
-        if (!ChildMapValues.Any())
+        var result = new List<MapValues>();
+        foreach (var childMapValue in childMapValues)
         {
-            values = (long.MaxValue, long.MaxValue);
-            return;
+            if(childMapValue.SourceRangeStart <= DestinationRangeEnd && childMapValue.SourceRangeEnd >= DestinationRangeStart)
+                result.Add(childMapValue);
         }
 
-        var minDestinationMapValue = ChildMapValues.Single(x => x.SourceRangeStart <= DestinationRangeStart && x.SourceRangeEnd >= DestinationRangeStart);
-        var minDestination = minDestinationMapValue.GetDestination(DestinationRangeStart);
+        return result.OrderBy(x => x.SourceRangeStart).ToList();
+    }
 
-        foreach (var childMapValue in ChildMapValues)
+    public List<MapValues> GetIncludedParentMapValuesSorted(List<MapValues> parentMapValues)
+    {
+        var result = new List<MapValues>();
+        foreach (var parentMapValue in parentMapValues)
         {
-            minDestination = minDestination < childMapValue.DestinationRangeStart
-                ? minDestination
-                : childMapValue.DestinationRangeStart;
+            if(parentMapValue.DestinationRangeStart <= SourceRangeEnd && parentMapValue.DestinationRangeEnd >= SourceRangeStart)
+                result.Add(parentMapValue);
         }
-    }*/
+
+        return result.OrderBy(x => x.DestinationRangeStart).ToList();
+    }
 }

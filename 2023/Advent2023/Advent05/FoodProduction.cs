@@ -4,13 +4,23 @@ public class FoodProduction
 {
     private List<long> Seeds => GetSeedList();
 
-    private Map SeedMap { get; set; }
+    private Map SeedSoilMap { get; set; } = new();
+    private Map SeedMap { get; set; } = new();
 
     private List<string> _input { get; set; }
-    public FoodProduction(List<string> input)
+    public FoodProduction(List<string> input, bool ranged = false)
     {
         _input = input;
-        PopulateMaps();
+
+        if (ranged)
+        {
+            BuildSeedMap();
+            PopulateMapsForRanged();
+        }
+        else
+        {
+            PopulateMaps();
+        }
     }
 
     public long GetClosestInitialSeedLocation()
@@ -19,7 +29,7 @@ public class FoodProduction
 
         foreach (var seed in Seeds)
         {
-            var location = SeedMap.GetDestination(seed);
+            var location = SeedSoilMap.GetDestination(seed);
 
             if (location < closestLocation)
                 closestLocation = location;
@@ -32,13 +42,25 @@ public class FoodProduction
     {
         var closestLocation = long.MaxValue;
 
-        foreach (var seed in GetSeedRanged())
+        foreach (var seed in SeedMap.MapValues)
         {
             for (var currentSeed = seed.SourceRangeStart; currentSeed < seed.SourceRangeEnd; currentSeed++)
             {
-                var destination = SeedMap.GetDestination(currentSeed);
+                var destination = SeedSoilMap.GetDestination(currentSeed);
                 closestLocation = closestLocation < destination ? closestLocation : destination;
             }
+        }
+
+        return closestLocation;
+    }
+
+    public long GetClosestInitialSeedLocationRanged2()
+    {
+        var closestLocation = long.MaxValue;
+        foreach (var seed in SeedMap.MapValues)
+        {
+            var destination = SeedSoilMap.GetDestination(seed.SourceRangeStart);
+            closestLocation = closestLocation < destination ? closestLocation : destination;
         }
 
         return closestLocation;
@@ -50,9 +72,12 @@ public class FoodProduction
             .Where(x => !string.IsNullOrWhiteSpace(x)).Select(long.Parse).ToList();
     }
 
-    private List<MapValues> GetSeedRanged()
+    private void BuildSeedMap()
     {
-        var result = new List<MapValues>();
+        SeedMap = new Map
+        {
+            Type = MapType.Seed
+        };
         var seedList = _input.Single(x => x.StartsWith("seeds")).Split(":").Last().Split(" ")
             .Where(x => !string.IsNullOrWhiteSpace(x)).Select(long.Parse).ToList();
 
@@ -61,19 +86,27 @@ public class FoodProduction
             var seedStart = seedList[i];
             var seedEnd = seedStart + seedList[i + 1] - 1;
 
-            var mapValues = new MapValues($"{seedStart} {seedStart} {seedEnd - seedStart - 1}");
-            mapValues.PopulateChildMapValuesBase(SeedMap);
-            result.Add(mapValues);
+            SeedMap.MapValues.Add(new MapValues($"{seedStart} {seedStart} {seedEnd - seedStart + 1}", MapType.Seed));
         }
-
-        return result;
     }
 
     private void PopulateMaps()
     {
         var mapStartIndex = _input.IndexOf("seed-to-soil map:");
-        SeedMap = new Map();
-        SeedMap.PopulateMapHierarchy(_input, mapStartIndex);
-        SeedMap.PopulateChildMapValues();
+        SeedSoilMap.PopulateMapHierarchy(_input, mapStartIndex);
     }
+
+    private void PopulateMapsForRanged()
+    {
+        var mapStartIndex = _input.IndexOf("seed-to-soil map:");
+        SeedSoilMap.PopulateMapHierarchy(_input, mapStartIndex);
+        SeedMap.ChildMap = SeedSoilMap;
+        bool hasSplit;
+        do
+        {
+            hasSplit = false;
+            SeedMap.SplitMapValues(ref hasSplit);
+        } while (hasSplit);
+    }
+
 }
