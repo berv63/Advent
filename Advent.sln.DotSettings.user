@@ -50,6 +50,8 @@
       &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent06.Advent06_WaitForItTests_Part1&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent07.Advent07_CamelCardsTests_Part2&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent07.Advent07_CamelCardsTests_Part1&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent08.Advent08_HauntedWastelandTests_Part1&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent08.Advent08_HauntedWastelandTests_Part2&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
