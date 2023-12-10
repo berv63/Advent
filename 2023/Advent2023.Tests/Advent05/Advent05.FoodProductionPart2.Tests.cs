@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Advent2023.Advent03;
 using Advent2023.Advent04;
 using Advent2023.Advent05;
@@ -34,6 +35,6 @@ public class Advent05_FertilizerTests_Part2
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
         SUT = new FoodProduction(fileData, true);
-        Assert.Equal(46, SUT.GetClosestInitialSeedLocationRanged2());
+        Assert.Equal(26714516, SUT.GetClosestInitialSeedLocationRanged2());
     }
 }
