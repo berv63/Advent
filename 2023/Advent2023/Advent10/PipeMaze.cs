@@ -13,14 +13,14 @@ public class PipeMaze
 
     public int GetFurthestPoint()
     {
-        MazeMap.CalculateLoopDistances();
+        MazeMap.CalculateLoopDistances(false);
         return MazeMap.FurthestPoint;
     }
 
-    //not right at all...
     public int GetEnclosedCount()
     {
-        MazeMap.CalculateLoopDistances();
+        MazeMap.CalculateLoopDistances(true);
+        MazeMap.CalculateEnclosedCount();
         return MazeMap.EnclosedCount;
     }
 }

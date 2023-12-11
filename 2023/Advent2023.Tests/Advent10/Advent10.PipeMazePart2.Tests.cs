@@ -49,6 +49,8 @@ public class Advent10_PipeMazeTests_Part2
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
         SUT = new PipeMaze(fileData);
-        Assert.Equal(4, SUT.GetEnclosedCount());
+        var result = SUT.GetEnclosedCount();
+        Assert.NotEqual(1425, result);
+        Assert.Equal(493, result);
     }
 }
