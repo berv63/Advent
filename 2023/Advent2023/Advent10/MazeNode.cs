@@ -6,8 +6,8 @@ namespace Advent2023.Advent10;
 public class MazeNode
 {
     public char Value { get; set; }
-    private int Row { get; set; }
-    private int Column { get; set; }
+    public int Row { get; set; }
+    public int Column { get; set; }
 
     public int? MinDistance => Distance1 < Distance2 ? Distance1 : Distance2;
     public int? Distance1 { get; set; }

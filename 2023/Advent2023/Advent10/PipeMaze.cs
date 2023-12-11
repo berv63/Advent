@@ -21,7 +21,6 @@ public class PipeMaze
     public int GetEnclosedCount()
     {
         MazeMap.CalculateLoopDistances();
-        MazeMap.CalculateEnclosedCount();
         return MazeMap.EnclosedCount;
     }
 }

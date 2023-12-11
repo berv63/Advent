@@ -6,7 +6,7 @@ public class Maze
 {
     private List<List<MazeNode>> MazeNodes { get; set; } = new();
     public int FurthestPoint => MazeNodes.SelectMany(x => x).Max(x => x.MinDistance)!.Value;
-    public int EnclosedCount => MazeNodes.SelectMany(x => x).Count(x => x.IsInsideLoop);
+    public int EnclosedCount => GetEnclosedCount();
 
     public Maze(List<string> input)
     {
@@ -67,51 +67,19 @@ public class Maze
         } while (currentNode!.Value != 'S');
     }
 
-    public void CalculateEnclosedCount()
+    //shoelace formula doesnt work with thick sides
+    private int GetEnclosedCount()
     {
-        CalculateEnclosedHorizontally();
-        CalculateEnclosedVertically();
-    }
-
-    private void CalculateEnclosedHorizontally()
-    {
-        foreach (var row in MazeNodes)
+        var currentNode = MazeNodes.Select(x => x.SingleOrDefault(y => y.Value == 'S')).Single(x => x != null);
+        var direction = currentNode!.GetStartDirection1();
+        var area = 0;
+        do
         {
-            var loopCount = 0;
-            for (var column = 0; column < MazeNodes[0].Count; column++)
-            {
-                if (row[column].IsPartOfLoop)
-                {
-                    loopCount++;
-                    continue;
-                }
+            var nextNode = currentNode.GetNextNode(ref direction, 0, 1);
+            area += (currentNode.Column * nextNode.Row) - (currentNode.Row * nextNode.Column);
+            currentNode = nextNode;
+        } while (currentNode!.Value != 'S');
 
-                if (loopCount % 2 != 0)
-                {
-                    row[column].IsInsideLoopHorizontally = true;
-                }
-            }
-        }
-    }
-
-    private void CalculateEnclosedVertically()
-    {
-        for (var column = 0; column < MazeNodes[0].Count; column++)
-        {
-            var loopCount = 0;
-            foreach (var row in MazeNodes)
-            {
-                if (row[column].IsPartOfLoop)
-                {
-                    loopCount++;
-                    continue;
-                }
-
-                if (loopCount % 2 != 0)
-                {
-                    row[column].IsInsideLoopVertically = true;
-                }
-            }
-        }
+        return area / 2;
     }
 }
