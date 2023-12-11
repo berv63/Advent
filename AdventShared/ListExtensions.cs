@@ -80,5 +80,21 @@ namespace AdventShared
                    targetRow < map.Count ||
                    targetColumn < map[targetRow].Length;
         }
+
+        public static ulong LeastCommonMultiple(this List<int> list)
+        {
+            var factors = new Dictionary<int, List<int>>();
+            foreach (var item in list)
+            {
+                var primeFactors = new List<int>();
+                item.GetPrimeFactors(ref primeFactors);
+                factors.Add(item, primeFactors);
+            }
+
+            var allPrimeFactors = factors.Values.SelectMany(x => x).Distinct();
+
+            return allPrimeFactors.Aggregate<int, ulong>(1, (current, primeFactor) => current * (ulong)primeFactor);
+        }
+
     }
 }

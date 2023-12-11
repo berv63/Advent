@@ -34,36 +34,26 @@ public class HauntedWasteland
         return stepsTaken;
     }
 
-    public int DoLonger()
+    public ulong DoLonger()
     {
         var currentNodes = Nodes.Where(x => x.Value.EndsWith("A")).ToList();
-        return GetSteps(currentNodes);
+        var steps = new List<int>();
+        foreach (var node in currentNodes)
+        {
+            steps.Add(GetSteps(node));
+        }
+
+        return steps.LeastCommonMultiple();
     }
 
-    private int GetSteps(List<Node> currentNodes)
+    private int GetSteps(Node currentNode)
     {
-        var currentSteps = 0;
-        var countEndsWithZ = 0;
+        var stepsTaken = 0;
         do
         {
-            countEndsWithZ = 0;
-            var newCurrentNodes = new List<Node>();
-            var direction = Instructions.GetCurrentDirection();
-            foreach (var node in currentNodes)
-            {
-                var newNode = node.ExecuteStep(direction);
-                if (newNode.Value.EndsWith("Z"))
-                {
-                    countEndsWithZ++;
-                }
-
-                newCurrentNodes.Add(newNode);
-            }
-
-            currentNodes = newCurrentNodes;
-            currentSteps++;
-        } while (countEndsWithZ != currentNodes.Count);
-
-        return currentSteps;
+            currentNode = currentNode.ExecuteStep(Instructions);
+            stepsTaken++;
+        } while (!currentNode.Value.EndsWith("Z"));
+        return stepsTaken;
     }
 }

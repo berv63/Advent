@@ -14,7 +14,7 @@ public class Advent08_HauntedWastelandTests_Part2
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
         SUT = new HauntedWasteland(fileData);
-        Assert.Equal(6, SUT.DoLonger());
+        Assert.Equal((ulong)6, SUT.DoLonger());
     }
 
     [Fact]
@@ -23,6 +23,9 @@ public class Advent08_HauntedWastelandTests_Part2
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
         SUT = new HauntedWasteland(fileData);
-        Assert.Equal(39594072, SUT.DoLonger());
+        var result = SUT.DoLonger();
+        Assert.NotEqual((ulong)1067680175, result);
+        Assert.NotEqual((ulong)53715412391, result);
+        Assert.Equal((ulong)14449445933179, result);
     }
 }
