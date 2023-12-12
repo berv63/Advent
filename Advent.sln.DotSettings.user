@@ -59,6 +59,12 @@
       &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent09.Advent09_MirageMaintenanceTests_Part2&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent10.Advent10_PipeMazeTests_Part1&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent10.Advent10_PipeMazeTests_Part2&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part1.GetFurthestMapDistance_Practice&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part1.GetPairDistance_Practice&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part1.GetPairDistanceSum_Practice&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part1&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part2.GetPairDistanceSumExpanded_Practice&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part2.GetPairDistanceSumExpanded_Actual&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
