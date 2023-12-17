@@ -96,5 +96,20 @@ namespace AdventShared
             return allPrimeFactors.Aggregate<int, ulong>(1, (current, primeFactor) => current * (ulong)primeFactor);
         }
 
+        public static List<List<T>> RotateMap<T>(this List<List<T>> list)
+        {
+            var result = new List<List<T>>();
+            for (var column = 0; column < list[0].Count; column++)
+            {
+                var newRow = new List<T>();
+                for (var row = list.Count - 1; row >= 0; row--)
+                {
+                    newRow.Add(list[row][column]);
+                }
+                result.Add(newRow);
+            }
+            return result;
+        }
+
     }
 }
