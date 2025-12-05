@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using AdventShared;
+﻿using AdventShared;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 
 namespace Advent2021.Tests
 {

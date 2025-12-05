@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using AdventShared;
+﻿using AdventShared;
 using NUnit.Framework;
 
 namespace Advent2020.Tests

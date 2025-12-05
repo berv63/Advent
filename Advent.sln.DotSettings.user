@@ -1,79 +1,11 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d3592bb2_002D7adb_002D4d96_002Dadc8_002D63959eb36ff5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SweepPractice" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent02_RockPaperScissorsTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent01_CalorieCountingTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent03_RucksackReorgTests.RucksackReorg_Practice&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent04_StubTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent04_CampCleanupTests.Stub_Actual&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent04_CampCleanupTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent05_SupplyStacksTests.SupplyStacks_Practice&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent05_SupplyStacksTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent07_NoSpaceTests.NoSpace_Practice&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent07_NoSpaceTests.TuningTrouble_Actual&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent07_NoSpaceTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent09_StubTests.TreeTopTreeHouse_Practice&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent09_RopeBridgeTests.RopeBridgeMulti_Practice2&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent09_RopeBridgeTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::CA9F4325-5104-40B6-B0EB-B06BF33AF502::net6.0::Advent2022.Tests.Advent10_CathodeRayTube&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f10cfba6_002D87e2_002D498b_002Dab79_002D199b912d51c7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b43f9d06_002D0493_002D4773_002D86ab_002D51c4ed199d91/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Or&gt;&#xD;
-    &lt;And&gt;&#xD;
-      &lt;TestAncestor&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent01.Advent01_TrebuchetTests_Part1&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent01.Advent01_TrebuchetTests_Part2&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent02.Advent02_CubeConundrumTests_Part1.EmptyInput_ReturnsZero&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent02.Advent02_CubeConundrumTests_Part1.TestGame_ReturnsResult&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent02.Advent02_CubeConundrumTests_Part1&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent02.Advent02_CubeConundrumTests_Part2&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent03.Advent02_GearRatiosTests_Part1&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent03.Advent03_GearRatiosTests_Part1&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent03.Advent03_GearRatiosTests_Part2&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent04.Advent04_ScratchCardsTests_Part1&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent03.Advent04_ScratchCardsTests_Part2&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent04.Advent04_ScratchCardsTests_Part2&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent05.Advent05_FertilizerTests_Part1&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent05.Advent05_FertilizerTests_Part2.FertilizerSum_Practice&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent05.Advent05_FertilizerTests_Part2.FertilizerSum_Actual&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent05.Advent05_FertilizerTests_Part2&lt;/TestId&gt;&#xD;
-      &lt;/TestAncestor&gt;&#xD;
-      &lt;Not&gt;&#xD;
-        &lt;TestAncestor&gt;&#xD;
-          &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent05.Advent05_FertilizerTests_Part2.FertilizerSum_Practice1&lt;/TestId&gt;&#xD;
-        &lt;/TestAncestor&gt;&#xD;
-      &lt;/Not&gt;&#xD;
-    &lt;/And&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent06.Advent06_WaitForItTests_Part2&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent06.Advent06_WaitForItTests_Part1&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent07.Advent07_CamelCardsTests_Part2&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent07.Advent07_CamelCardsTests_Part1&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent08.Advent08_HauntedWastelandTests_Part1&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent08.Advent08_HauntedWastelandTests_Part2&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Avent09.Avent09_MirageMaintenanceTests_Part1&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Avent09.Avent09_MirageMaintenanceTests_Part2&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Avent09.Avent09__MirageMaintenanceTests_Part1&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent09.Advent09_MirageMaintenanceTests_Part1&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent09.Advent09_MirageMaintenanceTests_Part2&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent10.Advent10_PipeMazeTests_Part1&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent10.Advent10_PipeMazeTests_Part2&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part1.GetFurthestMapDistance_Practice&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part1.GetPairDistance_Practice&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part1.GetPairDistanceSum_Practice&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part1&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part2.GetPairDistanceSumExpanded_Practice&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent11.Advent11_CosmicExpansionTests_Part2.GetPairDistanceSumExpanded_Actual&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent12.Advent12_HotSpringsTests_Part1&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent12.Advent12_HotSpringsTests_Part2.GetValidUnfoldedSpringPermutationIndividual&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent12.Advent12_HotSpringsTests_Part2.GetPairDistanceSumExpanded_Practice&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent12.Advent12_HotSpringsTests_Part2.GetPairDistanceSumExpanded_Actual&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent13.Advent13_PointOfIncidenceTests_Part1.GetMirrorSummary_Practice&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent13.Advent13_PointOfIncidenceTests_Part1.GetMirrorSummary_Actual&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent13.Advent13_PointOfIncidenceTests_Part2.GetPairDistanceSumExpanded_Practice&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent13.Advent13_PointOfIncidenceTests_Part2.GetPairDistanceSumExpanded_Actual&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::7AD241C6-B151-4251-9105-B5998DDA89F7::net7.0::Advent2023.Tests.Advent13.Advent13_PointOfIncidenceTests_Part2&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
+    &lt;Project Location="C:\Berv\Advent\2022\Advent2022.Tests" Presentation="&amp;lt;Advent2022.Tests&amp;gt;" /&gt;&#xD;
+    &lt;Project Location="C:\Berv\Advent\2023\Advent2023.Tests" Presentation="&amp;lt;Advent2023.Tests&amp;gt;" /&gt;&#xD;
   &lt;/Or&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+&lt;/SessionState&gt;</s:String>
+	
+	
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=edbebc4d_002Df462_002D4ad4_002Da1aa_002D53840c4ee16f_0023Advent2021_002ETests/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=ee752c4c_002Da876_002D4dcc_002Da064_002Dfe5786659c38_0023Advent2020_002ETests/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
