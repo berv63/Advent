@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 
 namespace AdventShared
@@ -53,6 +51,11 @@ namespace AdventShared
                     return false;
             }
             return true;
+        }
+        
+        public static bool IsEven(this int value)
+        {
+            return value % 2 == 0;
         }
     }
 }

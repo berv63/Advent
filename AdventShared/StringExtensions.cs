@@ -9,5 +9,10 @@ namespace AdventShared
         {
             return buffer.Substring(index, length).Distinct().Count() == length;
         }
+
+        public static bool IsEvenLength(this string value)
+        {
+            return value.Length.IsEven();
+        }
     }
 }

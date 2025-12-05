@@ -27,8 +27,4 @@
       <ProjectReference Include="..\Advent2025\Advent2025.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Advent02\" />
-    </ItemGroup>
-
 </Project>
