@@ -1,55 +1,56 @@
-using Advent2025.Advent04;
+using Advent2025.Advent05;
 using AdventShared;
 using Xunit;
 using Assert = NUnit.Framework.Assert;
 
-namespace Advent2025.Tests.Advent04;
+namespace Advent2025.Tests.Advent05;
 
-public class Advent04_Printing
+public class Advent05_CafeteriaTests
 {
-    private Printing SUT = new();
+    private Cafeteria SUT = new();
     
     [Fact]
-    public void AvailableRows_Practice()
+    public void FreshItemCount_Practice()
     {
         //Act
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
         //Assert
-        var result = SUT.TotalAvailableRolls(fileData);
-        Assert.That(result, Is.EqualTo(13));
+        var result = SUT.GetFreshItemCount(fileData);
+        Assert.That(result, Is.EqualTo(3));
     }
     
     [Fact]
-    public void AvailableRows_Actual()
+    public void FreshItemCount_Actual()
     {
         //Act
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
         //Assert
-        var result = SUT.TotalAvailableRolls(fileData);
-        Assert.That(result, Is.EqualTo(1560));
+        var result = SUT.GetFreshItemCount(fileData);
+        Assert.That(result, Is.EqualTo(505));
     }
     
     [Fact]
-    public void AvailableTotal_Practice()
+    public void FreshItemIdCount_Practice()
     {
         //Act
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
         //Assert
-        var result = SUT.OngoingAvailableRolls(fileData);
-        Assert.That(result, Is.EqualTo(43));
+        var result = SUT.GetFreshItemIdCount(fileData);
+        Assert.That(result, Is.EqualTo(14));
     }
     
     [Fact]
-    public void AvailableTotal_Actual()
+    public void FreshItemIdCount_Actual()
     {
         //Act
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
 
         //Assert
-        var result = SUT.OngoingAvailableRolls(fileData);
-        Assert.That(result, Is.EqualTo(9609));
+        var result = SUT.GetFreshItemIdCount(fileData);
+        Assert.That(result, Is.LessThan(367041619727250));
+        Assert.That(result, Is.EqualTo(344423158480189));
     }
 }
