@@ -18,6 +18,8 @@
       &lt;TestId&gt;xUnit::B2B067E3-0043-4CD4-A8AD-2B2DC06E22EE::net8.0::Advent2025.Tests.Advent02.Advent02_GiftShopTests.SumInvalid_Actual&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::B2B067E3-0043-4CD4-A8AD-2B2DC06E22EE::net8.0::Advent2025.Tests.Advent02.Advent02_GiftShopTests&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::B2B067E3-0043-4CD4-A8AD-2B2DC06E22EE::net8.0::Advent2025.Tests.Advent03.Advent03_LobbyTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::B2B067E3-0043-4CD4-A8AD-2B2DC06E22EE::net8.0::Advent2025.Tests.Advent03.Advent04_Printing&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::B2B067E3-0043-4CD4-A8AD-2B2DC06E22EE::net8.0::Advent2025.Tests.Advent04.Advent04_Printing&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
