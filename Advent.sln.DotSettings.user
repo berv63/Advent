@@ -1,9 +1,5 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=90bee772_002D2177_002D4369_002D9495_002D8af820f8c3a7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CountZero_Practice" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::B2B067E3-0043-4CD4-A8AD-2B2DC06E22EE::net8.0::Advent2025.Tests.Advent01.SecretEntranceTests.CountZero_Practice&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
+	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b43f9d06_002D0493_002D4773_002D86ab_002D51c4ed199d91/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Or&gt;&#xD;
     &lt;Project Location="C:\Berv\Advent\2022\Advent2022.Tests" Presentation="&amp;lt;Advent2022.Tests&amp;gt;" /&gt;&#xD;
