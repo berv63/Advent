@@ -2,7 +2,7 @@
 
 public class Playground
 {
-    public int CircuitSizes(List<string> input, int numConnections)
+    public long CircuitSizes(List<string> input, int numConnections)
     {
         var id = 0;
         var junctionBoxes = input.Select(row => new JunctionBox(row, id++)).ToList();
@@ -13,13 +13,9 @@ public class Playground
         }
         
         var circuitSizes = GetAllCircuitSizes(junctionBoxes).SelectMany(x => x.Value.Select(y => (x.Key, y.Key, y.Value))).OrderBy(x => x.Value).ToList();
-        var circuits = BuildCircuits(numConnections, circuitSizes).OrderByDescending(x => x.Count);
+        var circuits = BuildCircuits(numConnections, circuitSizes);
         
-        var largestCircuit = circuits.First();
-        var secondLargestCircuit = circuits.Skip(1).First();
-        var thirdLargestCircuit = circuits.Skip(2).First();
-        
-        return largestCircuit.Count * secondLargestCircuit.Count * thirdLargestCircuit.Count;
+        return circuits.GetTopThreeCountMultiplied();
     }
     
     public long FinalCircuitDistance(List<string> input)
@@ -45,33 +41,33 @@ public class Playground
     {
         var finalItemAdded = (0,0);
         
-        List<List<int>> circuits = new();
+        var circuits = new CircuitList();
 
         foreach (var circuit in circuitSizes)
         {
-            if(CircuitContainsBothItemsAlready(circuits, circuit))
+            if(circuits.CircuitContainsBothItemsAlready(circuit))
                 continue;
             
-            if (TwoCircuitsContainTheItems(circuits, circuit))
+            if (circuits.TwoCircuitsContainTheItems(circuit))
             {
-                MergeCircuits(circuits, circuit);
+                circuits.MergeCircuits(circuit);
                 finalItemAdded = (circuit.Item1, circuit.Item2);
                 continue;
             }
 
-            if (CircuitContainsItem1(circuits, circuit))
+            if (circuits.CircuitContainsItem1(circuit))
             {
-                AddItem2ToCircuit(circuits, circuit);
+                circuits.AddItem2ToCircuit(circuit);
                 finalItemAdded = (circuit.Item1, circuit.Item2);
             }
-            else if (CircuitsContainItem2(circuits, circuit))
+            else if (circuits.CircuitsContainItem2(circuit))
             {
-                AddItem1ToCircuit(circuits, circuit);
+                circuits.AddItem1ToCircuit(circuit);
                 finalItemAdded = (circuit.Item1, circuit.Item2);
             }
             else
             {
-                BuildNewCircuit(circuits, circuit);
+                circuits.BuildNewCircuit(circuit);
                 finalItemAdded = (circuit.Item1, circuit.Item2);
             }
         }
@@ -79,82 +75,37 @@ public class Playground
         return finalItemAdded;
     }
 
-    private static List<List<int>> BuildCircuits(int numConnections, List<(int, int, int)> circuitSizes)
+    private static CircuitList BuildCircuits(int numConnections, List<(int, int, int)> circuitSizes)
     {
-        List<List<int>> circuits = new();
+        var circuits = new CircuitList();
 
         for (var i = 0; i < numConnections; i++)
         {
             var circuit = circuitSizes[i];
-            if(CircuitContainsBothItemsAlready(circuits, circuit))
+            if(circuits.CircuitContainsBothItemsAlready(circuit))
                 continue;
             
-            if (TwoCircuitsContainTheItems(circuits, circuit))
+            if (circuits.TwoCircuitsContainTheItems(circuit))
             {
-                MergeCircuits(circuits, circuit);
+                circuits.MergeCircuits(circuit);
                 continue;
             }
 
-            if (CircuitContainsItem1(circuits, circuit))
+            if (circuits.CircuitContainsItem1(circuit))
             {
-                AddItem2ToCircuit(circuits, circuit);
+                circuits.AddItem2ToCircuit(circuit);
             }
-            else if (CircuitsContainItem2(circuits, circuit))
+            else if (circuits.CircuitsContainItem2(circuit))
             {
-                AddItem1ToCircuit(circuits, circuit);
+                circuits.AddItem1ToCircuit(circuit);
             }
             else
             {
-                BuildNewCircuit(circuits, circuit);
+                circuits.BuildNewCircuit(circuit);
             }
         }
 
         return circuits;
-    }
-
-    private static void BuildNewCircuit(List<List<int>> circuits, (int, int, int) circuit)
-    {
-        circuits.Add(new List<int> { circuit.Item1, circuit.Item2 });
-    }
-
-    private static void AddItem1ToCircuit(List<List<int>> circuits, (int, int, int) circuit)
-    {
-        var existingCircuit = circuits.First(x => x.Contains(circuit.Item2));
-        existingCircuit.Add(circuit.Item1);
-    }
-
-    private static void AddItem2ToCircuit(List<List<int>> circuits, (int, int, int) circuit)
-    {
-        var existingCircuit = circuits.First(x => x.Contains(circuit.Item1));
-        existingCircuit.Add(circuit.Item2);
-    }
-
-    private static bool CircuitsContainItem2(List<List<int>> circuits, (int, int, int) circuit)
-    {
-        return circuits.Any(x => x.Contains(circuit.Item2));
-    }
-
-    private static bool CircuitContainsItem1(List<List<int>> circuits, (int, int, int) circuit)
-    {
-        return circuits.Any(x => x.Contains(circuit.Item1));
-    }
-
-    private static void MergeCircuits(List<List<int>> circuits, (int, int, int) circuit)
-    {
-        var circuit1 = circuits.First(x => x.Contains(circuit.Item1));
-        var circuit2 = circuits.First(x => x.Contains(circuit.Item2));
-        circuit1.AddRange(circuit2);
-        circuits.Remove(circuit2);
-    }
-
-    private static bool TwoCircuitsContainTheItems(List<List<int>> circuits, (int, int, int) circuit)
-    {
-        return circuits.Any(x => x.Contains(circuit.Item1)) && circuits.Any(x => x.Contains(circuit.Item2));
-    }
-
-    private static bool CircuitContainsBothItemsAlready(List<List<int>> circuits, (int, int, int) circuit)
-    {
-        return circuits.Any(x => x.Contains(circuit.Item1) && x.Contains(circuit.Item2));
     }
 
     private Dictionary<int, Dictionary<int, int>> GetAllCircuitSizes(List<JunctionBox> junctionBoxes)
