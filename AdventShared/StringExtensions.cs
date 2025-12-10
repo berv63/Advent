@@ -14,5 +14,19 @@ namespace AdventShared
         {
             return value.Length.IsEven();
         }
+        
+        public static List<int> AllIndicesOfAny(this string str, params char[] value)
+        {
+            var indices = new List<int>();
+            for (var i = 0; i < str.Length; i++)
+            {
+                if (value.Contains(str[i]))
+                {
+                    indices.Add(i);
+                }
+            }
+
+            return indices;
+        }
     }
 }
