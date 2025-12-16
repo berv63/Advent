@@ -4,7 +4,7 @@ namespace Advent2025.Advent11;
 
 public class Reactor
 {
-    public int TotalPathsOut(List<string> input)
+    public long TotalPathsOut(List<string> input)
     {
         var devices = input.Select(line => new Device(line)).ToList();
         devices.Add(new Device("out"));
@@ -19,7 +19,7 @@ public class Reactor
         return youDevice.PathsOut;
     }
     
-    public int TotalPathsOutThroughDacFft(List<string> input)
+    public long TotalPathsOutThroughDacFft(List<string> input)
     {
         var devices = input.Select(line => new Device(line)).ToList();
         devices.Add(new Device("out"));
@@ -28,9 +28,9 @@ public class Reactor
             device.ConnectOutputs(devices);
         }
 
-        var youDevice = devices.Single(x => x.Name == "you");
-        youDevice.ProcessPathsOut();
+        var svrDevice = devices.Single(x => x.Name == "svr");
+        svrDevice.ProcessPathsOut();
 
-        return youDevice.PathsOut;
+        return svrDevice.PathsPassingThroughBoth;
     }
 }

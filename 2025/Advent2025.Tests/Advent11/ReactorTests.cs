@@ -32,7 +32,7 @@ public class Advent11_ReactorTests
     }
     
     [Fact]
-    public void TotalPathsOutThroughDacFft_Practice()
+    public void TotalPathsOutThroughDacFft_Practice2()
     {
         //Act
         var fileData = FileExtensions.ReadFile($@"..\..\..\..\{FileExtensions.GetFileLocation(this.GetType().Name[..8])}");
@@ -50,6 +50,6 @@ public class Advent11_ReactorTests
 
         //Assert
         var result = SUT.TotalPathsOutThroughDacFft(fileData);
-        Assert.That(result, Is.EqualTo(2));
+        Assert.That(result, Is.EqualTo(462444153119850));
     }
 }
